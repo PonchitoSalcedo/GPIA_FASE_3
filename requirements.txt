@@ -1,11 +1,12 @@
-numpy==2.0.0
+numpy==1.26.4
 fastapi==0.115.11
-starlette==0.41.3
-protobuf==5.29.1
+starlette==0.38.6
+protobuf==4.25.9
 scikit-learn==1.6.0
 pydantic==2.9.2
 gradio==5.9.1
 uvicorn==0.34.0
 scipy==1.14.1
+websockets==15.0.1
 pyngrok
 nest_asyncio
