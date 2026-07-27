@@ -1,0 +1,23 @@
+# DVC versiona los datos y artefactos pesados (que Git no debe versionar
+# directamente) y define el pipeline como un DAG reproducible: si cambia
+# generate_data.py o sus parámetros, "dvc repro" sabe que debe regenerar
+# el dataset y reentrenar, sin que nadie tenga que recordarlo manualmente.
+stages:
+  generate_data:
+    cmd: python data/generate_data.py
+    deps:
+      - data/generate_data.py
+    outs:
+      - data/churn_data.csv
+
+  train:
+    cmd: python src/train.py --data data/churn_data.csv --model-name churn-predictor
+    deps:
+      - data/churn_data.csv
+      - src/train.py
+      - src/features.py
+    outs:
+      - artifacts/model.joblib
+    metrics:
+      - artifacts/metrics.json:
+          cache: false
