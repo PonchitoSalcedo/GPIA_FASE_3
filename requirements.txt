@@ -1,6 +1,6 @@
 numpy==2.0.0
-fastapi==0.115.2
-starlette==1.0.1
+fastapi==0.115.11
+starlette==0.41.3
 protobuf==5.29.1
 scikit-learn==1.6.0
 pydantic==2.9.2
