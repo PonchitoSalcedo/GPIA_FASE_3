@@ -7,12 +7,5 @@ pydantic==2.9.2
 gradio==5.9.1
 uvicorn==0.34.0
 scipy==1.14.1
-opencv-python-headless==4.10.0.84
-rasterio==1.4.3
-tobler==0.13.1
-xarray-einstats==0.9.0
-hdbscan==0.8.39
-albumentations==1.4.3
-google-genai==1.0.0
 pyngrok
 nest_asyncio
