@@ -1,9 +1,29 @@
 # Churn Predictor — Pipeline MLOps + GitOps
 
+Repositorio: [github.com/PonchitoSalcedo/GPIA_FASE_3](https://github.com/PonchitoSalcedo/GPIA_FASE_3)
+
 Predicción de fuga de clientes (customer churn) para una empresa de
 telecomunicaciones, con un pipeline automatizado que cubre todo el ciclo
 de vida del modelo: integración continua, pruebas automatizadas,
 versionado, monitoreo, auditoría y optimización.
+
+## Cómo subir este repositorio a GitHub
+
+Esta carpeta ya es un repositorio Git local, con todo el historial de
+commits del desarrollo (`git log --oneline` para verlo). Para subirlo a
+`https://github.com/PonchitoSalcedo/GPIA_FASE_3`:
+
+```bash
+cd GPIA_FASE_3
+git remote add origin https://github.com/PonchitoSalcedo/GPIA_FASE_3.git
+git branch -M main
+git push -u origin main
+```
+
+Si el repositorio en GitHub ya tiene algún archivo (ej. un README creado
+al inicializarlo), usa `git push -u origin main --force` la primera vez,
+o borra ese archivo inicial desde GitHub antes de crear el repo local,
+para no generar conflictos de merge.
 
 ## Valor de negocio
 
@@ -59,6 +79,16 @@ churn-mlops-pipeline/
 ├── dvc.yaml
 └── requirements.txt
 ```
+
+## Ejecutar todo el pipeline en Google Colab
+
+Además de correrlo localmente, este repositorio incluye
+`notebooks/Colab_GPIA_FASE_3.ipynb`, listo para abrir directamente en
+Google Colab (clona este mismo repo, instala dependencias, genera datos,
+corre las pruebas, entrena, sirve el modelo y simula monitoreo, todo en
+una sola sesión). Ábrelo directamente desde GitHub una vez el repo esté
+subido, con:
+`https://colab.research.google.com/github/PonchitoSalcedo/GPIA_FASE_3/blob/main/notebooks/Colab_GPIA_FASE_3.ipynb`
 
 ## Cómo correrlo localmente
 
