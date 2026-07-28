@@ -1,0 +1,20 @@
+project_name: "california_housing_mlops"
+experiment_name: "california_housing_experiment"
+random_state: 42
+version: "1.0.0"
+
+data:
+  test_size: 0.2
+
+training:
+  hyperparameters:
+    XGBoost:
+      n_estimators: 200
+      max_depth: 6
+      learning_rate: 0.05
+      subsample: 0.8
+
+monitoring:
+  thresholds:
+    r2_score_min: 0.75
+    rmse_max: 0.8
