@@ -1,10 +1,57 @@
+# Python
 __pycache__/
-*.pyc
-.pytest_cache/
-mlruns/
-mlartifacts/
-logs/*.jsonl
-.env
-.DS_Store
+*.py[cod]
+*.so
+.Python
+env/
+venv/
+ENV/
+dist/
+build/
 *.egg-info/
-artifacts/*.joblib
+.eggs/
+
+# Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Datos y modelos
+*.pkl
+*.pickle
+*.h5
+*.pb
+*.joblib
+data/
+models/
+*.csv
+*.json
+*.html
+*.png
+*.txt
+
+# Logs
+logs/
+*.log
+
+# MLflow
+mlruns/
+mlflow.db
+
+# DVC
+.dvc/
+*.dvc
+*.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+*.key
+*.pem
