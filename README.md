@@ -159,7 +159,7 @@ XGBoost Optimizado:
 
 ---
 
-## Stack Tecnológico
+## 🛠️ Stack Tecnológico
 
 ### Lenguajes y Frameworks
 
@@ -184,9 +184,7 @@ XGBoost Optimizado:
 | **Monitoring** | Prometheus | - | Métricas |
 | **Visualization** | Grafana | - | Dashboards |
 
----
-
-## Testing y Calidad
+### Testing y Calidad
 
 | Componente | Tecnología | Propósito |
 |------------|------------|-----------|
