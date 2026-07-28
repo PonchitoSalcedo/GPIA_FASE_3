@@ -195,7 +195,7 @@ XGBoost Optimizado:
 
 ---
 
-### Estructura del Repositorio
+## 📁 Estructura del Repositorio
 
 GPIA_FASE_3/
 │
