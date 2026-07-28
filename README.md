@@ -15,7 +15,6 @@
 - [🏗️ Arquitectura de la Solución](#️-arquitectura-de-la-solución)
 - [📊 Resultados del Modelo](#-resultados-del-modelo)
 - [🛠️ Stack Tecnológico](#️-stack-tecnológico)
-- [📁 Estructura del Repositorio](#-estructura-del-repositorio)
 - [🚀 Instalación y Configuración](#-instalación-y-configuración)
 - [📓 Notebooks de Colab](#-notebooks-de-colab)
 - [🐳 Despliegue con Docker](#-despliegue-con-docker)
@@ -193,51 +192,6 @@ XGBoost Optimizado:
 | **Linting** | Flake8 | Calidad de código |
 | **Formatting** | Black | Formateo automático |
 
----
-
-## 📁 Estructura del Repositorio
-
-GPIA_FASE_3/
-│
-├── 📁 .github/
-│ └── 📁 workflows/
-│ └── 📄 ci_cd_pipeline.yml # Pipeline CI/CD
-│
-├── 📁 config/
-│ └── 📄 config.yaml # Configuración global
-│
-├── 📁 src/
-│ ├── 📄 init.py
-│ ├── 📄 data_processing.py # Procesamiento de datos
-│ ├── 📄 train.py # Entrenamiento
-│ ├── 📄 predict.py # Predicciones
-│ ├── 📄 model_utils.py # Utilidades
-│ └── 📄 api.py # API REST
-│
-├── 📁 tests/
-│ ├── 📄 init.py
-│ ├── 📄 test_data.py # Pruebas de datos
-│ └── 📄 test_model.py # Pruebas de modelo
-│
-├── 📁 notebooks/ # Notebooks de Colab
-│ ├── 📓 01_data_exploration.ipynb
-│ ├── 📓 02_model_training.ipynb
-│ ├── 📓 03_model_evaluation.ipynb
-│ └── 📓 04_pipeline_test.ipynb
-│
-├── 📁 artefactos_notebook1/ # Gráficos y datos del NB1
-├── 📁 artefactos_notebook2/ # Modelos y métricas del NB2
-├── 📁 artefactos_notebook3/ # Evaluación del NB3
-├── 📁 artefactos_notebook4/ # Pipeline del NB4
-│
-├── 📄 best_model.pkl # Modelo optimizado ⭐
-├── 📄 scaler.pkl # Escalador normalizado ⭐
-│
-├── 📄 Dockerfile # Dockerización
-├── 📄 docker-compose.yml # Servicios orquestados
-├── 📄 requirements.txt # Dependencias
-├── 📄 README.md # Documentación
-└── 📄 LICENSE # Licencia
 ---
 
 ## 🚀 Instalación y Configuración
