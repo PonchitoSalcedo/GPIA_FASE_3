@@ -1,0 +1,32 @@
+
+=== REPORTE DE EVALUACIÓN DEL MODELO ===
+Fecha: 2026-07-28 00:00:03
+
+1. MÉTRICAS DE DESEMPEÑO
+   - R² Score: 0.8461
+   - RMSE: 0.4491
+   - MAE: 0.2925
+   - MSE: 0.2017
+   - Explained Variance: 0.8461
+   - Max Error: 3.1297
+
+2. TOP CARACTERÍSTICAS
+   - MedInc: 47.1%
+   - AveOccup: 15.1%
+   - Longitude: 11.1%
+
+3. ESTABILIDAD (Bootstrap 95% CI)
+   - R²: [0.8312, 0.8591]
+   - RMSE: [0.4290, 0.4682]
+
+4. CONCLUSIONES
+   - El modelo muestra un desempeño excelente (R² > 0.8)
+   - El modelo es estable y robusto según pruebas de bootstrap
+   - El error promedio (MAE) es de 0.2925 unidades de precio
+   - El error máximo es de 3.1297 unidades de precio
+
+5. RECOMENDACIONES
+   - Implementar monitoreo continuo de drift en producción
+   - Configurar alertas para degradación de desempeño
+   - Programar retraining automático mensual
+   - Considerar ingeniería de features adicionales
