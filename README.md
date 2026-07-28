@@ -200,45 +200,44 @@ XGBoost Optimizado:
 GPIA_FASE_3/
 │
 ├── 📁 .github/
-│   └── 📁 workflows/
-│       └── 📄 ci_cd_pipeline.yml          # Pipeline CI/CD
+│ └── 📁 workflows/
+│ └── 📄 ci_cd_pipeline.yml # Pipeline CI/CD
 │
 ├── 📁 config/
-│   └── 📄 config.yaml                     # Configuración global
+│ └── 📄 config.yaml # Configuración global
 │
 ├── 📁 src/
-│   ├── 📄 __init__.py
-│   ├── 📄 data_processing.py              # Procesamiento de datos
-│   ├── 📄 train.py                        # Entrenamiento
-│   ├── 📄 predict.py                      # Predicciones
-│   ├── 📄 model_utils.py                  # Utilidades
-│   └── 📄 api.py                          # API REST
+│ ├── 📄 init.py
+│ ├── 📄 data_processing.py # Procesamiento de datos
+│ ├── 📄 train.py # Entrenamiento
+│ ├── 📄 predict.py # Predicciones
+│ ├── 📄 model_utils.py # Utilidades
+│ └── 📄 api.py # API REST
 │
 ├── 📁 tests/
-│   ├── 📄 __init__.py
-│   ├── 📄 test_data.py                    # Pruebas de datos
-│   └── 📄 test_model.py                   # Pruebas de modelo
+│ ├── 📄 init.py
+│ ├── 📄 test_data.py # Pruebas de datos
+│ └── 📄 test_model.py # Pruebas de modelo
 │
-├── 📁 notebooks/                          # Notebooks de Colab
-│   ├── 📓 01_data_exploration.ipynb
-│   ├── 📓 02_model_training.ipynb
-│   ├── 📓 03_model_evaluation.ipynb
-│   └── 📓 04_pipeline_test.ipynb
+├── 📁 notebooks/ # Notebooks de Colab
+│ ├── 📓 01_data_exploration.ipynb
+│ ├── 📓 02_model_training.ipynb
+│ ├── 📓 03_model_evaluation.ipynb
+│ └── 📓 04_pipeline_test.ipynb
 │
-├── 📁 artefactos_notebook1/               # Gráficos y datos del NB1
-├── 📁 artefactos_notebook2/               # Modelos y métricas del NB2
-├── 📁 artefactos_notebook3/               # Evaluación del NB3
-├── 📁 artefactos_notebook4/               # Pipeline del NB4
+├── 📁 artefactos_notebook1/ # Gráficos y datos del NB1
+├── 📁 artefactos_notebook2/ # Modelos y métricas del NB2
+├── 📁 artefactos_notebook3/ # Evaluación del NB3
+├── 📁 artefactos_notebook4/ # Pipeline del NB4
 │
-├── 📄 best_model.pkl                      # Modelo optimizado ⭐
-├── 📄 scaler.pkl                          # Escalador normalizado ⭐
+├── 📄 best_model.pkl # Modelo optimizado ⭐
+├── 📄 scaler.pkl # Escalador normalizado ⭐
 │
-├── 📄 Dockerfile                          # Dockerización
-├── 📄 docker-compose.yml                  # Servicios orquestados
-├── 📄 requirements.txt                    # Dependencias
-├── 📄 README.md                           # Documentación
-└── 📄 LICENSE                             # Licencia
-
+├── 📄 Dockerfile # Dockerización
+├── 📄 docker-compose.yml # Servicios orquestados
+├── 📄 requirements.txt # Dependencias
+├── 📄 README.md # Documentación
+└── 📄 LICENSE # Licencia
 ---
 
 ## 🚀 Instalación y Configuración
