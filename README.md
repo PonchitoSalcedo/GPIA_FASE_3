@@ -68,40 +68,38 @@ El mercado inmobiliario de California presenta un desafío complejo para la pred
 
 ---
 
-## 🏗️ Arquitectura de la Solución
+## ️ Arquitectura de la Solución
 
 ### Diagrama de Arquitectura
-┌──────────────────────────────────────────────────┐
-│              INTERFAZ DE USUARIO                 │
-│           API REST + Dashboard Web               │
-└──────────────────────┬───────────────────────────┘
-                       ▼
-┌──────────────────────────────────────────────────┐
-│              CAPA DE APLICACIÓN                  │
-│  FastAPI │ MLflow │ DVC │ Prometheus             │
-│  Service │Tracking│Versioning│ Metrics           │
-└──────────────────────┬───────────────────────────┘
-                       ▼
-┌──────────────────────────────────────────────────┐
-│                CAPA DE DATOS                     │
-│  Raw Data │ Processed │ Features │ Predictions   │
-│   (CSV)   │   Data    │  Store   │   Store       │
-└──────────────────────┬───────────────────────────┘
-                       ▼
-┌──────────────────────────────────────────────────┐
-│              INFRAESTRUCTURA                     │
-│  Docker │ Kubernetes │ AWS │ GitHub              │
-│Containers│  Cluster   │Services│ Actions         │
-└──────────────────────────────────────────────────┘
+
+**🖥️ INTERFAZ DE USUARIO**
+- API REST + Dashboard Web
+  ↓
+**⚙️ CAPA DE APLICACIÓN**
+- FastAPI (Service)
+- MLflow (Tracking)
+- DVC (Versioning)
+- Prometheus (Metrics)
+  ↓
+**💾 CAPA DE DATOS**
+- Raw Data (CSV)
+- Processed Data
+- Features Store
+- Predictions Store
+  ↓
+**🏗️ INFRAESTRUCTURA**
+- Docker (Containers)
+- Kubernetes (Cluster)
+- AWS (Services)
+- GitHub (Actions)
+
+---
 
 ### Pipeline CI/CD
 
-┌───────────────────────────────────────────────────────────────┐
-│                  GITHUB ACTIONS PIPELINE                      │
-│                                                               │
-│  Testing ──▶ Training ──▶ Evaluation ──▶ Deploy ──▶ Monitor │
-│   (CI)                                    (CD)                │
-└───────────────────────────────────────────────────────────────┘
+**🔄 GITHUB ACTIONS PIPELINE**
+
+Testing (CI) → Training → Evaluation → Deploy (CD) → Monitor
 
 
 ---
@@ -203,44 +201,45 @@ XGBoost Optimizado:
 
 GPIA_FASE_3/
 │
-├── 📁 .github/workflows/
-│   └── 📄 ci_cd_pipeline.yml          # Pipeline CI/CD
+├── 📁 .github/
+│   └── 📁 workflows/
+│       └── 📄 ci_cd_pipeline.yml          # Pipeline CI/CD
 │
 ├── 📁 config/
-│   └── 📄 config.yaml                 # Configuración global
+│   └── 📄 config.yaml                     # Configuración global
 │
 ├── 📁 src/
 │   ├── 📄 __init__.py
-│   ├── 📄 data_processing.py          # Procesamiento de datos
-│   ├── 📄 train.py                    # Entrenamiento
-│   ├── 📄 predict.py                  # Predicciones
-│   ├── 📄 model_utils.py              # Utilidades
-│   └── 📄 api.py                      # API REST
+│   ├── 📄 data_processing.py              # Procesamiento de datos
+│   ├── 📄 train.py                        # Entrenamiento
+│   ├── 📄 predict.py                      # Predicciones
+│   ├── 📄 model_utils.py                  # Utilidades
+│   └── 📄 api.py                          # API REST
 │
 ├── 📁 tests/
 │   ├── 📄 __init__.py
-│   ├── 📄 test_data.py                # Pruebas de datos
-│   └── 📄 test_model.py               # Pruebas de modelo
+│   ├── 📄 test_data.py                    # Pruebas de datos
+│   └── 📄 test_model.py                   # Pruebas de modelo
 │
-├── 📁 notebooks/                      # Notebooks de Colab
+├── 📁 notebooks/                          # Notebooks de Colab
 │   ├── 📓 01_data_exploration.ipynb
 │   ├── 📓 02_model_training.ipynb
 │   ├── 📓 03_model_evaluation.ipynb
 │   └── 📓 04_pipeline_test.ipynb
 │
-├── 📁 artefactos_notebook1/           # Gráficos y datos
-├── 📁 artefactos_notebook2/           # Modelos y métricas
-├── 📁 artefactos_notebook3/           # Evaluación
-├── 📁 artefactos_notebook4/           # Pipeline
+├── 📁 artefactos_notebook1/               # Gráficos y datos del NB1
+├── 📁 artefactos_notebook2/               # Modelos y métricas del NB2
+├── 📁 artefactos_notebook3/               # Evaluación del NB3
+├── 📁 artefactos_notebook4/               # Pipeline del NB4
 │
-├── 📄 best_model.pkl                  # Modelo optimizado ⭐
-├── 📄 scaler.pkl                      # Escalador normalizado ⭐
+├── 📄 best_model.pkl                      # Modelo optimizado ⭐
+├── 📄 scaler.pkl                          # Escalador normalizado ⭐
 │
-├── 📄 Dockerfile                      # Dockerización
-├── 📄 docker-compose.yml              # Servicios orquestados
-├── 📄 requirements.txt                # Dependencias
-├── 📄 README.md                       # Documentación
-└── 📄 LICENSE                         # Licencia
+├── 📄 Dockerfile                          # Dockerización
+├── 📄 docker-compose.yml                  # Servicios orquestados
+├── 📄 requirements.txt                    # Dependencias
+├── 📄 README.md                           # Documentación
+└── 📄 LICENSE                             # Licencia
 
 ---
 
