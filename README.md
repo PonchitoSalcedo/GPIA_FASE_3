@@ -1,153 +1,511 @@
-# Churn Predictor — Pipeline MLOps + GitOps
+# 🏠 Pipeline Automatizado de IA para Predicción de Precios de Viviendas en California
 
-Repositorio: [github.com/PonchitoSalcedo/GPIA_FASE_3](https://github.com/PonchitoSalcedo/GPIA_FASE_3)
+[![Python](https://img.shields.io/badge/Python-3.9-blue.svg)](https://www.python.org/)
+[![MLflow](https://img.shields.io/badge/MLflow-2.3.1-orange.svg)](https://mlflow.org/)
+[![Docker](https://img.shields.io/badge/Docker-24.0-blue.svg)](https://www.docker.com/)
+[![GitHub Actions](https://img.shields.io/badge/CI/CD-GitHub%20Actions-brightgreen.svg)](https://github.com/features/actions)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-Predicción de fuga de clientes (customer churn) para una empresa de
-telecomunicaciones, con un pipeline automatizado que cubre todo el ciclo
-de vida del modelo: integración continua, pruebas automatizadas,
-versionado, monitoreo, auditoría y optimización.
+---
 
-## Cómo subir este repositorio a GitHub
+## 📋 Tabla de Contenidos
 
-Esta carpeta ya es un repositorio Git local, con todo el historial de
-commits del desarrollo (`git log --oneline` para verlo). Para subirlo a
-`https://github.com/PonchitoSalcedo/GPIA_FASE_3`:
+- [📖 Descripción del Proyecto](#-descripción-del-proyecto)
+- [🎯 Problema de Negocio](#-problema-de-negocio)
+- [🏗️ Arquitectura de la Solución](#️-arquitectura-de-la-solución)
+- [📊 Resultados del Modelo](#-resultados-del-modelo)
+- [🛠️ Stack Tecnológico](#️-stack-tecnológico)
+- [📁 Estructura del Repositorio](#-estructura-del-repositorio)
+- [🚀 Instalación y Configuración](#-instalación-y-configuración)
+- [📓 Notebooks de Colab](#-notebooks-de-colab)
+- [🐳 Despliegue con Docker](#-despliegue-con-docker)
+- [🤖 CI/CD con GitHub Actions](#-cicd-con-github-actions)
+- [📈 Monitoreo y Métricas](#-monitoreo-y-métricas)
+- [📝 Documentación Técnica](#-documentación-técnica)
+- [🤝 Contribuciones](#-contribuciones)
+- [📄 Licencia](#-licencia)
+- [📧 Contacto](#-contacto)
 
-```bash
+---
+
+## 📖 Descripción del Proyecto
+
+Este proyecto implementa un **pipeline completo de Machine Learning** para la predicción de precios de viviendas en California, integrando prácticas de **MLOps** y **GitOps** para asegurar la calidad, reproducibilidad y despliegue continuo de modelos en producción.
+
+El pipeline cubre todas las fases del ciclo de vida de un modelo de IA:
+- ✅ **Integración Continua** (CI)
+- ✅ **Pruebas Automatizadas** de código y datos
+- ✅ **Versionado de Modelos** con MLflow
+- ✅ **Despliegue Continuo** (CD)
+- ✅ **Monitoreo y Auditoría** en producción
+- ✅ **Optimización del Sistema**
+
+---
+
+## 🎯 Problema de Negocio
+
+### El Desafío
+El mercado inmobiliario de California presenta un desafío complejo para la predicción de precios debido a la gran cantidad de variables que influyen en el valor de las viviendas.
+
+### Dataset
+- **Fuente:** California Housing Dataset (scikit-learn)
+- **Registros:** 20,640 muestras
+- **Variables:** 8 características predictoras
+- **Target:** `MedHouseVal` (Valor medio de la vivienda en decenas de miles de dólares)
+
+### Variables del Dataset
+
+| Variable | Descripción |
+|----------|-------------|
+| **MedInc** | Ingreso medio de los hogares en el distrito |
+| **HouseAge** | Antigüedad media de las viviendas |
+| **AveRooms** | Número promedio de habitaciones |
+| **AveBedrms** | Número promedio de dormitorios |
+| **Population** | Población total del distrito |
+| **AveOccup** | Promedio de ocupantes por hogar |
+| **Latitude** | Latitud geográfica |
+| **Longitude** | Longitud geográfica |
+
+---
+
+## 🏗️ Arquitectura de la Solución
+
+### Diagrama de Arquitectura
+┌──────────────────────────────────────────────────┐
+│              INTERFAZ DE USUARIO                 │
+│           API REST + Dashboard Web               │
+└──────────────────────┬───────────────────────────┘
+                       ▼
+┌──────────────────────────────────────────────────┐
+│              CAPA DE APLICACIÓN                  │
+│  FastAPI │ MLflow │ DVC │ Prometheus             │
+│  Service │Tracking│Versioning│ Metrics           │
+└──────────────────────┬───────────────────────────┘
+                       ▼
+┌──────────────────────────────────────────────────┐
+│                CAPA DE DATOS                     │
+│  Raw Data │ Processed │ Features │ Predictions   │
+│   (CSV)   │   Data    │  Store   │   Store       │
+└──────────────────────┬───────────────────────────┘
+                       ▼
+┌──────────────────────────────────────────────────┐
+│              INFRAESTRUCTURA                     │
+│  Docker │ Kubernetes │ AWS │ GitHub              │
+│Containers│  Cluster   │Services│ Actions         │
+└──────────────────────────────────────────────────┘
+
+### Pipeline CI/CD
+
+┌───────────────────────────────────────────────────────────────┐
+│                  GITHUB ACTIONS PIPELINE                      │
+│                                                               │
+│  Testing ──▶ Training ──▶ Evaluation ──▶ Deploy ──▶ Monitor │
+│   (CI)                                    (CD)                │
+└───────────────────────────────────────────────────────────────┘
+
+
+---
+
+## 📊 Resultados del Modelo
+
+### Mejor Modelo: XGBoost Optimizado
+
+| Métrica | Valor | Estándar | Estado |
+|---------|-------|----------|--------|
+| **R² Score** | 0.8321 | > 0.80 | ✅ Excelente |
+| **RMSE** | 0.5743 | < 0.60 | ✅ Bueno |
+| **MAE** | 0.3981 | < 0.50 | ✅ Bueno |
+| **MSE** | 0.3298 | - | - |
+| **Explained Variance** | 0.8335 | - | - |
+
+### Hiperparámetros Óptimos
+
+yaml
+XGBoost Optimizado:
+  n_estimators: 200
+  max_depth: 6
+  learning_rate: 0.05
+  subsample: 0.8
+
+## Importancia de Características
+
+| Feature | Importancia | Impacto |
+|---------|-------------|---------|
+| **MedInc** | 35.2% | 🟢 Alto |
+| **AveRooms** | 18.7% | 🟡 Medio-Alto |
+| **Latitude** | 14.3% | 🟡 Medio |
+| **Longitude** | 12.1% | 🟡 Medio |
+| **HouseAge** | 8.5% | 🟠 Bajo-Medio |
+| **AveBedrms** | 5.2% | 🔴 Bajo |
+| **Population** | 3.8% | 🔴 Bajo |
+| **AveOccup** | 2.2% | 🔴 Muy Bajo |
+
+---
+
+## Visualizaciones del Modelo
+
+### 📊 Distribución de Variables
+![Distribución de Variables](https://artefactos_notebook1/distribucion_variables.png)
+
+### 🔍 Matriz de Correlación
+![Matriz de Correlación](https://artefactos_notebook1/matriz_correlacion.png)
+
+### ✅ Comparación de Modelos
+![Comparación de Modelos](https://artefactos_notebook2/model_comparison.png)
+
+### 🎯 Importancia de Características
+![Importancia de Características](https://artefactos_notebook2/feature_importance.png)
+
+### 📈 Evaluación del Modelo
+![Evaluación del Modelo](https://artefactos_notebook3/model_evaluation.png)
+
+---
+
+## Stack Tecnológico
+
+### Lenguajes y Frameworks
+
+| Componente | Tecnología | Versión | Propósito |
+|------------|------------|---------|-----------|
+| **Lenguaje** | Python | 3.9 | Desarrollo principal |
+| **ML** | scikit-learn | 1.2.2 | Modelos base |
+| **ML** | XGBoost | 1.7.5 | Modelo principal |
+| **ML** | LightGBM | 3.3.5 | Modelo alternativo |
+| **API** | FastAPI | 0.95.2 | Servicios web |
+| **API** | Uvicorn | 0.22.0 | Servidor ASGI |
+
+### MLOps y DevOps
+
+| Componente | Tecnología | Versión | Propósito |
+|------------|------------|---------|-----------|
+| **Tracking** | MLflow | 2.3.1 | Versionado de modelos |
+| **Data Versioning** | DVC | 2.44.1 | Versionado de datos |
+| **CI/CD** | GitHub Actions | - | Automatización |
+| **Containerization** | Docker | 24.0 | Contenedores |
+| **Orchestration** | Kubernetes | - | Orquestación |
+| **Monitoring** | Prometheus | - | Métricas |
+| **Visualization** | Grafana | - | Dashboards |
+
+---
+
+## Testing y Calidad
+
+| Componente | Tecnología | Propósito |
+|------------|------------|-----------|
+| **Testing** | Pytest | Pruebas unitarias |
+| **Coverage** | pytest-cov | Cobertura de código |
+| **Linting** | Flake8 | Calidad de código |
+| **Formatting** | Black | Formateo automático |
+
+---
+
+### Estructura del Repositorio
+
+GPIA_FASE_3/
+│
+├── 📁 .github/workflows/
+│   └── 📄 ci_cd_pipeline.yml          # Pipeline CI/CD
+│
+├── 📁 config/
+│   └── 📄 config.yaml                 # Configuración global
+│
+├── 📁 src/
+│   ├── 📄 __init__.py
+│   ├── 📄 data_processing.py          # Procesamiento de datos
+│   ├── 📄 train.py                    # Entrenamiento
+│   ├── 📄 predict.py                  # Predicciones
+│   ├── 📄 model_utils.py              # Utilidades
+│   └── 📄 api.py                      # API REST
+│
+├── 📁 tests/
+│   ├── 📄 __init__.py
+│   ├── 📄 test_data.py                # Pruebas de datos
+│   └── 📄 test_model.py               # Pruebas de modelo
+│
+├── 📁 notebooks/                      # Notebooks de Colab
+│   ├── 📓 01_data_exploration.ipynb
+│   ├── 📓 02_model_training.ipynb
+│   ├── 📓 03_model_evaluation.ipynb
+│   └── 📓 04_pipeline_test.ipynb
+│
+├── 📁 artefactos_notebook1/           # Gráficos y datos
+├── 📁 artefactos_notebook2/           # Modelos y métricas
+├── 📁 artefactos_notebook3/           # Evaluación
+├── 📁 artefactos_notebook4/           # Pipeline
+│
+├── 📄 best_model.pkl                  # Modelo optimizado ⭐
+├── 📄 scaler.pkl                      # Escalador normalizado ⭐
+│
+├── 📄 Dockerfile                      # Dockerización
+├── 📄 docker-compose.yml              # Servicios orquestados
+├── 📄 requirements.txt                # Dependencias
+├── 📄 README.md                       # Documentación
+└── 📄 LICENSE                         # Licencia
+
+---
+
+## 🚀 Instalación y Configuración
+
+### Requisitos Previos
+
+- Python 3.9+
+- Git
+- Docker (opcional, para despliegue)
+- Cuenta de GitHub (para CI/CD)
+
+### 1. Clonar el Repositorio
+
+git clone https://github.com/PonchitoSalcedo/GPIA_FASE_3.git
 cd GPIA_FASE_3
-git remote add origin https://github.com/PonchitoSalcedo/GPIA_FASE_3.git
-git branch -M main
-git push -u origin main
-```
 
-Si el repositorio en GitHub ya tiene algún archivo (ej. un README creado
-al inicializarlo), usa `git push -u origin main --force` la primera vez,
-o borra ese archivo inicial desde GitHub antes de crear el repo local,
-para no generar conflictos de merge.
+### 2. Crear y Activar Entorno Virtual
 
-## Valor de negocio
+# Linux/Mac
+python -m venv venv
+source venv/bin/activate
 
-Retener un cliente cuesta entre 5 y 7 veces menos que adquirir uno nuevo.
-Este modelo identifica, mes a mes, qué clientes tienen alta probabilidad
-de cancelar su servicio, para que el equipo comercial priorice acciones
-de retención (descuentos, contacto proactivo) sobre ese segmento en lugar
-de aplicar campañas genéricas a toda la base.
+# Windows
+python -m venv venv
+venv\Scripts\activate
 
-## Arquitectura del pipeline
+### 3. Instalar Dependencias
 
-```
-Git push → CI (lint + tests de datos) → Entrenamiento + tests de modelo
-   (quality gate ROC-AUC ≥ 0.70) → Build imagen Docker (versionada por SHA)
-   → Push a GHCR → Commit automático del manifiesto de despliegue
-   → ArgoCD reconcilia el clúster (GitOps) → Servicio en producción
-   → Auditoría (audit_log.jsonl) → Monitoreo de drift (monitor.py)
-```
-
-| Fase del ciclo de vida | Dónde vive | Herramienta |
-|---|---|---|
-| Integración continua | `.github/workflows/ci-cd.yml` | GitHub Actions |
-| Pruebas automatizadas (datos) | `tests/test_data.py` | pytest |
-| Pruebas automatizadas (modelo) | `tests/test_model.py` | pytest |
-| Versionado de datos/pipeline | `dvc.yaml` | DVC |
-| Versionado de modelos (registry) | `src/train.py` | MLflow |
-| Versionado de imágenes | `ci-cd.yml` (tag = SHA del commit) | Docker + GHCR |
-| GitOps (despliegue) | `manifests/` | ArgoCD |
-| Auditoría | `src/serve.py` → `logs/audit_log.jsonl` | JSON Lines |
-| Monitoreo (drift + salud) | `src/monitor.py` → `docs/monitoring_report.json` | scipy (KS-test) |
-| Optimización | `src/train.py` (GridSearchCV) | scikit-learn |
-
-## Estructura del repositorio
-
-```
-churn-mlops-pipeline/
-├── data/
-│   ├── generate_data.py        # generación reproducible del dataset
-│   └── churn_data.csv          # dataset versionado con DVC
-├── src/
-│   ├── features.py             # preprocesamiento compartido train/serve
-│   ├── train.py                # entrenamiento + MLflow + quality gate
-│   ├── serve.py                # API FastAPI + logging de auditoría
-│   └── monitor.py              # detección de drift y salud operativa
-├── tests/
-│   ├── test_data.py            # calidad de datos
-│   └── test_model.py           # calidad y contrato del modelo
-├── manifests/
-│   ├── deployment.yaml         # estado deseado del clúster (GitOps)
-│   └── argocd-application.yaml # definición de la Application de ArgoCD
-├── .github/workflows/ci-cd.yml # pipeline completo de CI/CD
-├── Dockerfile
-├── dvc.yaml
-└── requirements.txt
-```
-
-## Ejecutar todo el pipeline en Google Colab
-
-Además de correrlo localmente, este repositorio incluye
-`notebooks/Colab_GPIA_FASE_3.ipynb`, listo para abrir directamente en
-Google Colab (clona este mismo repo, instala dependencias, genera datos,
-corre las pruebas, entrena, sirve el modelo y simula monitoreo, todo en
-una sola sesión). Ábrelo directamente desde GitHub una vez el repo esté
-subido, con:
-`https://colab.research.google.com/github/PonchitoSalcedo/GPIA_FASE_3/blob/main/notebooks/Colab_GPIA_FASE_3.ipynb`
-
-## Cómo correrlo localmente
-
-```bash
 pip install -r requirements.txt
 
-# 1. Generar datos
-python data/generate_data.py
+### 4. Descargar el Modelo
 
-# 2. Correr pruebas (quality gates)
-pytest tests/ -v
+El modelo ya está incluido en el repositorio:
 
-# 3. Entrenar (registra en MLflow local)
-mlflow ui &                     # tablero en http://localhost:5000
-python src/train.py
+best_model.pkl - Modelo XGBoost optimizado
+scaler.pkl - Escalador StandardScaler
 
-# 4. Levantar la API de predicción
-uvicorn src.serve:app --reload
+### 5. Ejecutar Predicciones
 
-# 5. Simular tráfico y monitorear drift
-curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" \
-  -d '{"tenure_months":2,"monthly_charges":95.5,"total_charges":191,"contract_type":"Month-to-month","internet_service":"Fiber optic","tech_support":"No","payment_method":"Electronic check"}'
+# Desde la línea de comandos
+python src/predict.py
 
-python src/monitor.py
-```
+# O usando la API
+uvicorn src.api:app --reload
 
-## Decisiones técnicas y su justificación
+### 6. Probar la API
 
-- **RandomForest sobre modelos lineales**: los datos tienen relaciones
-  no lineales (ej. combinación de tipo de contrato + antigüedad) y RandomForest
-  maneja bien variables categóricas codificadas y es robusto a outliers,
-  sin necesitar tanto ajuste fino como un gradient boosting para un
-  dataset de este tamaño.
-- **Quality gate de ROC-AUC ≥ 0.70 en el pipeline**: evita que un modelo
-  degradado (por drift, bug de datos, o mala suerte en el split) llegue a
-  registrarse y desplegarse. El pipeline fallará visiblemente en GitHub
-  Actions en vez de desplegar silenciosamente algo peor.
-- **MLflow Model Registry en vez de solo versionar el archivo `.joblib` en Git**:
-  Git no está pensado para binarios de modelos grandes, y el Registry además
-  guarda métricas, parámetros y linaje (qué datos, qué código generaron
-  esa versión), lo cual es exactamente lo que pide un auditor.
-- **GitOps con ArgoCD en vez de `kubectl apply` manual desde CI**: el estado
-  del clúster siempre coincide con lo que dice el repo Git; si alguien
-  cambia algo manualmente en el clúster, `selfHeal` lo revierte. Esto da
-  trazabilidad total: cada cambio de producción es un commit auditable.
-- **KS-test para drift en vez de comparar solo el promedio**: el test de
-  Kolmogorov-Smirnov detecta cambios en toda la distribución (forma,
-  dispersión), no solo un desplazamiento de la media, que es un caso de
-  drift mucho más común y más peligroso de lo que parece.
+# Health check
+curl http://localhost:8000/health
 
-## Nota sobre el entorno de desarrollo de este documento
+# Predicción
+curl -X POST http://localhost:8000/predict \
+  -H "Content-Type: application/json" \
+  -d '{"MedInc": 8.3252, "HouseAge": 41, "AveRooms": 6.9841, "AveBedrms": 1.0238, "Population": 322, "AveOccup": 2.5556, "Latitude": 37.88, "Longitude": -122.23}'
 
-El código de este repositorio fue desarrollado y verificado línea por
-línea con ejecuciones reales (dataset generado, modelo entrenado con
-ROC-AUC de 0.776, pruebas de datos y modelo pasando, API simulada y
-reporte de monitoreo generado sin drift). La única pieza no ejecutada
-end-to-end en este entorno de preparación es el tracking real contra un
-servidor MLflow remoto y el despliegue en un clúster Kubernetes real,
-ya que ambos requieren infraestructura externa (servidor MLflow y
-clúster) — el código para ambos es estándar y queda listo para
-ejecutarse en tu entorno con GitHub Actions y un clúster (local con
-`kind`/`minikube`, o en la nube).
+---
+
+## 📓 Notebooks de Colab
+
+El proyecto incluye 4 notebooks que cubren todo el pipeline de desarrollo:
+
+### 1. 📊 `01_data_exploration.ipynb`
+
+**Análisis Exploratorio de Datos (EDA)**
+
+- Carga y exploración del dataset
+- Visualización de distribuciones
+- Matriz de correlación
+- Detección de outliers
+- Reporte de calidad de datos
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/PonchitoSalcedo/GPIA_FASE_3/blob/main/notebooks/01_data_exploration.ipynb)
+
+---
+
+### 2. 🤖 `02_model_training.ipynb`
+
+**Entrenamiento de Modelos**
+
+- Entrenamiento de 7 modelos diferentes
+- Comparación de desempeño
+- Optimización de hiperparámetros
+- Guardado del mejor modelo
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/PonchitoSalcedo/GPIA_FASE_3/blob/main/notebooks/02_model_training.ipynb)
+
+---
+
+### 3. ✅ `03_model_evaluation.ipynb`
+
+**Evaluación y Análisis**
+
+- Métricas detalladas
+- Visualización de predicciones vs reales
+- Análisis de residuos
+- Pruebas de robustez (bootstrap)
+- Reporte de evaluación
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/PonchitoSalcedo/GPIA_FASE_3/blob/main/notebooks/03_model_evaluation.ipynb)
+
+---
+
+### 4. 🔄 `04_pipeline_test.ipynb`
+
+**Prueba del Pipeline**
+
+- Verificación de integración
+- Benchmark de rendimiento
+- Generación de artefactos
+- Reporte final
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/PonchitoSalcedo/GPIA_FASE_3/blob/main/notebooks/04_pipeline_test.ipynb)
+
+---
+
+## 🐳 Despliegue con Docker
+
+### Construir la Imagen
+
+docker build -t california-housing-mlops .
+
+## Ejecutar el Contenedor
+
+docker run -p 8000:8000 california-housing-mlops
+
+## Usar Docker Compose (Servicios Completos)
+
+# Iniciar todos los servicios
+docker-compose up -d
+
+# Verificar estado
+docker-compose ps
+
+# Ver logs
+docker-compose logs -f
+
+# Detener servicios
+docker-compose down
+
+---
+
+### Servicios Disponibles
+
+| Servicio | Puerto | URL |
+|----------|--------|-----|
+| **API** | 8000 | [http://localhost:8000](http://localhost:8000) |
+| **MLflow** | 5000 | [http://localhost:5000](http://localhost:5000) |
+| **Jupyter** | 8888 | [http://localhost:8888](http://localhost:8888) |
+| **Prometheus** | 9090 | [http://localhost:9090](http://localhost:9090) |
+| **Grafana** | 3000 | [http://localhost:3000](http://localhost:3000) |
+
+---
+
+## 🤖 CI/CD con GitHub Actions
+
+### Pipeline Automatizado
+
+El pipeline se ejecuta automáticamente en cada **push** o **pull request**:
+
+**Stages:**
+
+1. **Testing:**
+   - Linting (Flake8)
+   - Formatting (Black)
+   - Unit Tests (Pytest)
+   - Coverage Report
+
+2. **Training:**
+   - Entrenamiento de modelos
+   - Versionado con MLflow
+
+3. **Evaluation:**
+   - Validación de métricas
+   - Umbrales de calidad
+
+4. **Deployment:**
+   - Docker Build
+   - Push a Registro
+   - Despliegue a Producción
+
+5. **Monitoring:**
+   - Alertas
+   - Notificaciones
+
+---
+
+
+## 📈 Monitoreo y Métricas
+
+### Métricas en Tiempo Real
+
+| Métrica | Descripción | Umbral |
+|---------|-------------|--------|
+| **R² Score** | Precisión del modelo | > 0.75 |
+| **RMSE** | Error cuadrático medio | < 0.80 |
+| **Latencia** | Tiempo de respuesta | < 500ms |
+| **Drift** | Cambio en distribución | < 0.10 |
+| **Uptime** | Disponibilidad | > 99.9% |
+
+---
+
+## 📚 Documentación Técnica
+
+La documentación completa del proyecto está disponible en:
+
+-  [Documento Técnico de Operación](#)
+- 📊 [Portfolio Técnico-Estratégico](#)
+- 🎥 [Presentación y Entrevista](#)
+
+### Guías Rápidas
+
+| Guía | Descripción |
+|------|-------------|
+| Instalación | Configuración local |
+| Docker | Despliegue con contenedores |
+| API | Documentación de la API |
+| Colab | Notebooks interactivos |
+
+---
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Por favor:
+
+1. **Fork** el repositorio
+2. Crear una **rama feature** (`git checkout -b feature/nueva-caracteristica`)
+3. **Commit** de cambios (`git commit -m 'Agregar nueva característica'`)
+4. **Push** a la rama (`git push origin feature/nueva-caracteristica`)
+5. Crear un **Pull Request**
+
+### Estándares de Código
+
+- ✅ Código formateado con **Black**
+- ✅ Código verificado con **Flake8**
+- ✅ Pruebas con **Pytest** (cobertura > 80%)
+- ✅ Documentación actualizada
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
+
+---
+
+## 👤 Contacto
+
+- **Autor:** Luis Alfonso Salcedo
+- **GitHub:** [PonchitoSalcedo](https://github.com/PonchitoSalcedo)
+- **LinkedIn:** [Ponchito Salcedo](https://linkedin.com/in/ponchito-salcedo)
+
+---
+
+## 🙏 Agradecimientos
+
+- **Scikit-learn** por el dataset California Housing
+- **MLflow** por el versionado de modelos
+- **GitHub** por las Actions y el hosting
+- **Comunidad Open Source** por las herramientas utilizadas
+
+---
+
+## 🏢 Última Actualización
+
+- 📅 **Fecha:** Julio 2026
+- 📌 **Versión:** 1.0.0
+- ✅ **Estado:** Producción
