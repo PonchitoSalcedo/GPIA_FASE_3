@@ -1,0 +1,17 @@
+__pycache__
+*.pyc
+*.pkl
+*.csv
+*.png
+*.html
+*.txt
+*.json
+.git
+.gitignore
+README.md
+notebooks/
+artefactos_*/
+data/
+models/
+logs/
+*.ipynb
