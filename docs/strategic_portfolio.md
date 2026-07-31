@@ -128,47 +128,50 @@ Una solución de IA puede:
 
 ### Diagrama de Arquitectura Simplificado
 
-
+```
 ┌──────────────────────────────────────────────────────┐
-│                   INTERFAZ DE USUARIO                │
-│              API REST + Dashboard Web                │
+│                   INTERFAZ DE USUARIO               │
+│              API REST + Dashboard Web               │
 └──────────────────────────────────────────────────────┘
                          │
                          ▼
 ┌──────────────────────────────────────────────────────┐
-│                   CAPA DE APLICACIÓN                 │
-│   FastAPI  │  MLflow  │  DVC  │  Prometheus          │
+│                   CAPA DE APLICACIÓN                │
+│   FastAPI  │  MLflow  │  DVC  │  Prometheus        │
 └──────────────────────────────────────────────────────┘
                          │
                          ▼
 ┌──────────────────────────────────────────────────────┐
-│                     CAPA DE DATOS                    │
-│  Raw Data │ Processed │ Features │ Predictions       │
+│                     CAPA DE DATOS                   │
+│  Raw Data │ Processed │ Features │ Predictions     │
 └──────────────────────────────────────────────────────┘
                          │
                          ▼
 ┌──────────────────────────────────────────────────────┐
-│                   INFRAESTRUCTURA                    │
-│  Docker │ Kubernetes │ AWS │ GitHub Actions          │
+│                   INFRAESTRUCTURA                   │
+│  Docker │ Kubernetes │ AWS │ GitHub Actions        │
 └──────────────────────────────────────────────────────┘
+```
 
 ### Flujo de Datos
 
-1. **Ingesta de Datos**
-   ⬇️
-2. **Preprocesamiento** (StandardScaler)
-   ⬇️
-3. **Entrenamiento** (XGBoost con GridSearchCV)
-   ⬇️
-4. **Evaluación y Validación**
-   ⬇️
-5. **Versionado** (MLflow)
-   ⬇️
-6. **Despliegue** (Docker + Kubernetes)
-   ⬇️
-7. **Monitoreo** (Prometheus + Grafana)
-   ⬇️
-8. **Retraining Automático** (cuando se detecta drift)
+```
+1. Ingesta de Datos
+   ↓
+2. Preprocesamiento (StandardScaler)
+   ↓
+3. Entrenamiento (XGBoost con GridSearchCV)
+   ↓
+4. Evaluación y Validación
+   ↓
+5. Versionado (MLflow)
+   ↓
+6. Despliegue (Docker + Kubernetes)
+   ↓
+7. Monitoreo (Prometheus + Grafana)
+   ↓
+8. Retraining Automático (cuando se detecta drift)
+```
 
 
 ### Componentes del Sistema
