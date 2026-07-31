@@ -1,4 +1,5 @@
-<img width="1536" height="2752" alt="Estrategia_y_Automatización_MLOps" src="https://github.com/user-attachments/assets/76a11006-a08a-4bb7-884c-85c2714cd966" />
+<img width="1536" height="2752" alt="Pipeline_MLOps_y_Valor_Estratégico" src="https://github.com/user-attachments/assets/4c9be85f-1d97-4b6e-8f83-c72b7b017524" />
+
 
 
 # 🏠 Pipeline Automatizado de IA para Predicción de Precios de Viviendas en California
