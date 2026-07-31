@@ -127,33 +127,36 @@ Una solución de IA puede:
 ## 4. Arquitectura de la Solución
 
 ### Diagrama de Arquitectura Simplificado
-+-----------------------------------------------------------+
+graph TD
+    subgraph UI ["| INTERFAZ DE USUARIO |"]
+        A["API REST + Dashboard Web"]
+    end
 
-| | INTERFAZ DE USUARIO |                                   |
-| | API REST + Dashboard Web |                              |
-+-----------------------------------------------------------+
-                              |
-                              v
-+-----------------------------------------------------------+
+    subgraph APP ["| CAPA DE APLICACIÓN |"]
+        B["FastAPI | MLflow | DVC | Prometheus"]
+    end
 
-| | CAPA DE APLICACIÓN |                                    |
-| | FastAPI | MLflow | DVC | Prometheus |                   |
-+-----------------------------------------------------------+
-                              |
-                              v
-+-----------------------------------------------------------+
+    subgraph DATA ["| CAPA DE DATOS |"]
+        C["Raw Data | Processed | Features | Predictions"]
+    end
 
-| | CAPA DE DATOS |                                         |
-| | Raw Data | Processed | Features | Predictions |         |
-+-----------------------------------------------------------+
-                              |
-                              v
-+-----------------------------------------------------------+
+    subgraph INFRA ["| INFRAESTRUCTURA |"]
+        D["Docker | Kubernetes | AWS | GitHub Actions"]
+    end
 
-| | INFRAESTRUCTURA |                                       |
-| | Docker | Kubernetes | AWS | GitHub Actions |            |
-+-----------------------------------------------------------+
+    UI --> APP
+    APP --> DATA
+    DATA --> INFRA
 
+    %% Estilos para mejorar la apariencia en GitHub
+    style UI fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style APP fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style DATA fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style INFRA fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style A fill:#fff,stroke:#666
+    style B fill:#fff,stroke:#666
+    style C fill:#fff,stroke:#666
+    style D fill:#fff,stroke:#666
 
 ### Flujo de Datos
 
