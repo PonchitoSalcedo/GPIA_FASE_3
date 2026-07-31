@@ -245,7 +245,7 @@ Este documento describe la arquitectura, componentes, mecanismos de monitoreo, e
 
 **Estructura del Reporte:**
 
-```json
+json
 {
   "report_id": "UUID",
   "timestamp": "datetime",
