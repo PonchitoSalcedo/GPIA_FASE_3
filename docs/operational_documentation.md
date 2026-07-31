@@ -368,8 +368,7 @@ json
 
 ## 📊 Contacto
 
-- **Autor:** Ponchito Salcedo
-- **Email:** ponchito.salcedo@company.com
+- **Autor:** Luis Alfonso Salcedo
 - **GitHub:** [PonchitoSalcedo](https://github.com/PonchitoSalcedo)
 
 ---
