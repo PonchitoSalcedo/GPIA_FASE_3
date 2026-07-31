@@ -130,26 +130,26 @@ Una solución de IA puede:
 
 ```
 ┌──────────────────────────────────────────────────────┐
-│                   INTERFAZ DE USUARIO               │
-│              API REST + Dashboard Web               │
+│                   INTERFAZ DE USUARIO                │
+│              API REST + Dashboard Web                │
 └──────────────────────────────────────────────────────┘
                          │
                          ▼
 ┌──────────────────────────────────────────────────────┐
-│                   CAPA DE APLICACIÓN                │
-│   FastAPI  │  MLflow  │  DVC  │  Prometheus        │
+│                   CAPA DE APLICACIÓN                 │
+│   FastAPI  │  MLflow  │  DVC  │  Prometheus          │
 └──────────────────────────────────────────────────────┘
                          │
                          ▼
 ┌──────────────────────────────────────────────────────┐
-│                     CAPA DE DATOS                   │
-│  Raw Data │ Processed │ Features │ Predictions     │
+│                     CAPA DE DATOS                    │
+│  Raw Data │ Processed │ Features │ Predictions       │
 └──────────────────────────────────────────────────────┘
                          │
                          ▼
 ┌──────────────────────────────────────────────────────┐
-│                   INFRAESTRUCTURA                   │
-│  Docker │ Kubernetes │ AWS │ GitHub Actions        │
+│                   INFRAESTRUCTURA                    │
+│  Docker │ Kubernetes │ AWS │ GitHub Actions          │
 └──────────────────────────────────────────────────────┘
 ```
 
