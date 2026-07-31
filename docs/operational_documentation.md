@@ -261,6 +261,8 @@ Este documento describe la arquitectura, componentes, mecanismos de monitoreo, e
 | `data_quality.drift_score` | float | Score de drift detectado |
 | `recommendations` | array | Lista de recomendaciones |
 
+Este reporte se genera automáticamente después de cada ejecución del pipeline y se almacena en `pipeline_metrics.json` para su posterior auditoría.
+
 ## 6. Métricas Clave de Desempeño
 
 ### 6.1 Indicadores de Negocio
