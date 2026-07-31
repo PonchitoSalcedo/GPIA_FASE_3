@@ -245,28 +245,21 @@ Este documento describe la arquitectura, componentes, mecanismos de monitoreo, e
 
 **Estructura del Reporte:**
 
-json
-{
-  "report_id": "UUID",
-  "timestamp": "datetime",
-  "model_version": "semantic_version",
-  "test_results": {
-    "unit_tests": "passed|failed",
-    "integration_tests": "passed|failed",
-    "performance_tests": "passed|failed"
-  },
-  "validation_metrics": {
-    "r2_score": "float",
-    "rmse": "float",
-    "mae": "float"
-  },
-  "data_quality": {
-    "missing_values": "percentage",
-    "outliers": "percentage",
-    "drift_score": "float"
-  },
-  "recommendations": ["Lista de recomendaciones"]
-}
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| `report_id` | UUID | Identificador único del reporte |
+| `timestamp` | datetime | Fecha y hora de generación |
+| `model_version` | string | Versión semántica del modelo |
+| `test_results.unit_tests` | string | `passed` o `failed` |
+| `test_results.integration_tests` | string | `passed` o `failed` |
+| `test_results.performance_tests` | string | `passed` o `failed` |
+| `validation_metrics.r2_score` | float | Coeficiente de determinación |
+| `validation_metrics.rmse` | float | Error cuadrático medio |
+| `validation_metrics.mae` | float | Error absoluto medio |
+| `data_quality.missing_values` | percentage | Porcentaje de valores nulos |
+| `data_quality.outliers` | percentage | Porcentaje de outliers |
+| `data_quality.drift_score` | float | Score de drift detectado |
+| `recommendations` | array | Lista de recomendaciones |
 
 ## 6. Métricas Clave de Desempeño
 
