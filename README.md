@@ -143,22 +143,39 @@ XGBoost Optimizado:
 
 ---
 
-## Visualizaciones del Modelo
+## 📊 Visualizaciones del Modelo
 
-### 📊 Distribución de Variables
-![Distribución de Variables](https://artefactos_notebook1/distribucion_variables.png)
+### 🔍 Notebook 1 - Análisis Exploratorio de Datos
 
-### 🔍 Matriz de Correlación
-![Matriz de Correlación](https://artefactos_notebook1/matriz_correlacion.png)
+| Visualización | Descripción |
+|--------------|-------------|
+| ![Distribución de Variables](./artefactos_notebook1/distribucion_variables.png) | **Distribución de Variables** - Análisis de la distribución de cada variable |
+| ![Matriz de Correlación](./artefactos_notebook1/matriz_correlacion.png) | **Matriz de Correlación** - Relaciones entre variables |
+| ![Relaciones con Target](./artefactos_notebook1/relaciones_target.png) | **Relaciones Target - Variables** - Correlación con la variable objetivo |
+| ![Boxplots Outliers](./artefactos_notebook1/boxplots_outliers.png) | **Boxplots para Outliers** - Detección de valores atípicos |
 
-### ✅ Comparación de Modelos
-![Comparación de Modelos](https://artefactos_notebook2/model_comparison.png)
+📊 **Reporte Adicional:** [Ver Reporte de Perfil de Datos](./artefactos_notebook1/data_profile_report.html)
 
-### 🎯 Importancia de Características
-![Importancia de Características](https://artefactos_notebook2/feature_importance.png)
+---
 
-### 📈 Evaluación del Modelo
-![Evaluación del Modelo](https://artefactos_notebook3/model_evaluation.png)
+### 🤖 Notebook 2 - Entrenamiento y Comparación de Modelos
+
+| Visualización | Descripción |
+|--------------|-------------|
+| ![Comparación de Modelos](./artefactos_notebook2/model_comparison.png) | **Comparación de Modelos** - Rendimiento de diferentes algoritmos |
+| ![Importancia de Características](./artefactos_notebook2/feature_importance.png) | **Importancia de Características** - Features más relevantes para el modelo |
+
+📊 **Datos Adicionales:** [Ver Resultados de Entrenamiento](./artefactos_notebook2/training_results.csv)
+
+---
+
+### 📈 Notebook 3 - Evaluación del Modelo
+
+| Visualización | Descripción |
+|--------------|-------------|
+| ![Evaluación del Modelo](./artefactos_notebook3/model_evaluation.png) | **Evaluación del Modelo** - Métricas y rendimiento final |
+
+📄 **Reporte Detallado:** [Ver Reporte de Evaluación](./artefactos_notebook3/evaluation_report.txt)
 
 ---
 
