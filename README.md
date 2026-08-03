@@ -407,14 +407,12 @@ La documentación completa del proyecto está disponible en los siguientes recur
 - [**Documentación Operativa**](./documentos/operational_documentation.md) - Manual de operaciones
 - [**Portfolio Estratégico**](./documentos/strategic_portfolio.md) - Planificación estratégica
 
-### 🎥 Videos Demostrativos
-- [**Pipeline MLOps - Predicción de Vivienda (Parte 1)**](./videos/Pipeline_MLOps_Prediccion_Vivienda_1.mp4)
-- [**Pipeline MLOps - Predicción de Vivienda (Parte 2)**](./videos/Pipeline_MLOps_Prediccion_Vivienda_2.mp4)
+### 🎥 Videos y Presentaciones
+- [**Pipeline MLOps - Predicción de Viviendas**](./Videos/Pipeline_MLOps_Prediccion_Viviendas.mp4) - Video demostrativo del pipeline
+- [**Presentación del Pipeline MLOps**](./Videos/Pipeline_MLOps_Prediccion_Viviendas_Final.pptx) - Presentación en PowerPoint
 
 ### ❓ Preguntas Frecuentes
-- [Preguntas del Proyecto](./videos/Preguntas_Proyecto.md)
-
-> **Nota:** Los enlaces con `#` serán actualizados cuando los archivos estén disponibles.
+- [Preguntas del Proyecto](./Videos/Preguntas_Proyecto.md) - FAQ del proyecto
 
 ### Guías Rápidas
 
