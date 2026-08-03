@@ -399,22 +399,15 @@ El pipeline se ejecuta automáticamente en cada **push** o **pull request**:
 
 ## 📚 Documentación Técnica
 
-La documentación completa del proyecto está disponible en los siguientes recursos:
-
-### 📄 Documentos
-- [**Documento Técnico de Operación**](./documentos/Documento_Tecnico_Operacion.pdf) - Guía técnica completa del sistema
-- [**Portfolio Técnico-Estratégico**](./documentos/Portfolio_Tecnico_Estrategico.pdf) - Visión estratégica del proyecto
-- [**Documentación Operativa**](./documentos/operational_documentation.md) - Manual de operaciones
-- [**Portfolio Estratégico**](./documentos/strategic_portfolio.md) - Planificación estratégica
-
-### 🎥 Videos y Presentaciones
-- [**Pipeline MLOps - Predicción de Viviendas**](./Videos/Pipeline_MLOps_Prediccion_Viviendas.mp4) - Video demostrativo del pipeline
-- [**Presentación del Pipeline MLOps**](./Videos/Pipeline_MLOps_Prediccion_Viviendas_Final.pptx) - Presentación en PowerPoint
-
-### ❓ Preguntas Frecuentes
-- [Preguntas del Proyecto](./Videos/Preguntas_Proyecto.md) - FAQ del proyecto
-
-### Guías Rápidas
+| Tipo | Recurso | Acción |
+|------|---------|--------|
+| 📄 PDF | Documento Técnico de Operación | [📥 Descargar](./documentos/Documento_Tecnico_Operacion.pdf?raw=true) |
+| 📄 PDF | Portfolio Técnico-Estratégico | [📥 Descargar](./documentos/Portfolio_Tecnico_Estrategico.pdf?raw=true) |
+| 📝 Markdown | Documentación Operativa | [👁️ Ver en GitHub](./documentos/operational_documentation.md) |
+| 📝 Markdown | Portfolio Estratégico | [👁️ Ver en GitHub](./documentos/strategic_portfolio.md) |
+| 🎬 Video | Pipeline MLOps | [▶️ Reproducir](./Videos/Pipeline_MLOps_Prediccion_Viviendas.mp4) |
+| 📊 PPTX | Presentación del Proyecto | [📥 Descargar](./Videos/Pipeline_MLOps_Prediccion_Viviendas_Final.pptx?raw=true) |
+| ❓ Markdown | Preguntas del Proyecto | [👁️ Ver en GitHub](./Videos/Preguntas_Proyecto.md) |
 
 | Guía | Descripción |
 |------|-------------|
