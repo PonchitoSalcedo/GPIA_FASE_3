@@ -399,11 +399,22 @@ El pipeline se ejecuta automáticamente en cada **push** o **pull request**:
 
 ## 📚 Documentación Técnica
 
-La documentación completa del proyecto está disponible en:
+La documentación completa del proyecto está disponible en los siguientes recursos:
 
--  [Documento Técnico de Operación](#)
-- 📊 [Portfolio Técnico-Estratégico](#)
-- 🎥 [Presentación y Entrevista](#)
+### 📄 Documentos
+- [**Documento Técnico de Operación**](./documentos/Documento_Tecnico_Operacion.pdf) - Guía técnica completa del sistema
+- [**Portfolio Técnico-Estratégico**](./documentos/Portfolio_Tecnico_Estrategico.pdf) - Visión estratégica del proyecto
+- [**Documentación Operativa**](./documentos/operational_documentation.md) - Manual de operaciones
+- [**Portfolio Estratégico**](./documentos/strategic_portfolio.md) - Planificación estratégica
+
+### 🎥 Videos Demostrativos
+- [**Pipeline MLOps - Predicción de Vivienda (Parte 1)**](./videos/Pipeline_MLOps_Prediccion_Vivienda_1.mp4)
+- [**Pipeline MLOps - Predicción de Vivienda (Parte 2)**](./videos/Pipeline_MLOps_Prediccion_Vivienda_2.mp4)
+
+### ❓ Preguntas Frecuentes
+- [Preguntas del Proyecto](./videos/Preguntas_Proyecto.md)
+
+> **Nota:** Los enlaces con `#` serán actualizados cuando los archivos estén disponibles.
 
 ### Guías Rápidas
 
